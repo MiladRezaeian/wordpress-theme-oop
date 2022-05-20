@@ -157,12 +157,13 @@
 </footer><!--/Footer-->
 
 
-
+<?php wp_footer(); ?>
 <script src="<?php echo Asset::js('jquery.js'); ?>"></script>
 <script src="<?php echo Asset::js('bootstrap.min.js'); ?>"></script>
 <script src="<?php echo Asset::js('jquery.scrollUp.min.js'); ?>"></script>
 <script src="<?php echo Asset::js('price-range.js'); ?>"></script>
 <script src="<?php echo Asset::js('jquery.prettyPhoto.js'); ?>"></script>
 <script src="<?php echo Asset::js('main.js'); ?>"></script>
+
 </body>
 </html>
