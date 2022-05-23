@@ -753,3 +753,22 @@
         </div>
     </div>
 </section>
+
+
+<?php
+
+    $new_products = new WP_Query(array(
+            'post_type' => 'product',
+            'order'     => 'ASC',
+            'orderby'   => 'meta_value_num',
+            'meta_key'  => Product::PRICE_META_KEY
+    ));
+    if($new_products->have_posts()){
+        while ($new_products->have_posts()){
+            $new_products->the_post();
+            echo get_the_title();
+            echo Product::price(get_the_ID());
+        }
+    }
+
+?>
