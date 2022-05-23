@@ -60,7 +60,7 @@ class PostTypes
     {
         if($column == 'product_price'){
             $product_price = get_post_meta($post_id,'product_price',true);
-            echo number_format($product_price);
+            echo Utility::persian_numbers(number_format($product_price));
         }
     }
 
