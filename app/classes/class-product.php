@@ -16,4 +16,12 @@ class Product
         return 0;
     }
 
+    public static function get_slider_images($product_id)
+    {
+        if (!$product_id) {
+            return 0;
+        }
+        $slider_images = get_post_meta($product_id, 'slider_images')
+    }
+
 }
