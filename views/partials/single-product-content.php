@@ -192,7 +192,19 @@
                             <p>Web ID: 1089772</p>
                             <img src="images/product-details/rating.png" alt="" />
                             <span>
-									<span>US $59</span>
+                                    <span>
+                                        <?php
+                                        $product_price = Product::price(get_the_ID());
+                                        $product_sale_price = Product::sale_price(get_the_ID());
+                                        ?>
+                                        <?php if (intval($product_sale_price)>0): ?>
+                                            <del class="product_price"><?php echo $product_price ?></del>
+                                            <ins class="product_price"><?php echo $product_sale_price ?></ins>
+                                        <?php else: ?>
+                                            <ins class="product_price"><?php echo $product_price ?></ins>
+                                        <?php endif; ?>
+                                    </span>
+
 									<label>Quantity:</label>
 									<input type="text" value="3" />
 									<button type="button" class="btn btn-fefault cart">
