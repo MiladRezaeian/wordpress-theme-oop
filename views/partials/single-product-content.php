@@ -155,9 +155,12 @@
                             <!-- Wrapper for slides -->
                             <div class="carousel-inner">
                                 <div class="item active">
-                                    <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar2.jpg" alt=""></a>
-                                    <a href=""><img src="images/product-details/similar3.jpg" alt=""></a>
+                                    <?php $product_slider_images = Product::get_slider_images(get_the_ID()); ?>
+                                    <?php if( $product_slider_images && count($product_slider_images)): ?>
+                                        <?php foreach ($product_slider_images as $image): ?>
+                                            <a href=""><img src="<?php echo $image; ?>" alt=""></a>
+                                        <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="item">
                                     <a href=""><img src="images/product-details/similar1.jpg" alt=""></a>
