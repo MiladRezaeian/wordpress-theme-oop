@@ -2,20 +2,20 @@
 
 class Product
 {
-    const PRICE_META_KEY = 'product_price';
+    const REGULAR_PRICE_META_KEY = 'product_regular_price';
     const SALE_PRICE_META_KEY = 'product_sale_price';
 
-    public static function price($product_id,$in_persian = false)
+    public static function regular_price($product_id,$in_persian = false)
     {
         if (!$product_id) {
             return 0;
         }
-        $price = get_post_meta($product_id, self::PRICE_META_KEY, true);
-        if (intval($price) > 0) {
+        $regular_price = get_post_meta($product_id, self::REGULAR_PRICE_META_KEY, true);
+        if (intval($regular_price) > 0) {
             if($in_persian){
-                return Utility::persian_numbers(number_format(apply_filters('product_price', $price)));
+                return Utility::persian_numbers(number_format(apply_filters('product_regular_price', $regular_price)));
             }
-            return apply_filters('product_price', $price);
+            return apply_filters('product_regular_price', $regular_price);
         }
         return 0;
     }
@@ -46,5 +46,10 @@ class Product
         }
         return false;
     }
+
+	public static function find( $product_id ) {
+		$product = get_post($product_id);
+		return $product;
+	}
 
 }

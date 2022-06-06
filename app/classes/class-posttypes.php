@@ -50,17 +50,17 @@ class PostTypes
         register_post_type('Product', $args);
     }
 
-    public static function add_price_column($columns)
+    public static function add_regular_price_column($columns)
     {
-        $columns['product_price'] = 'Price';
+        $columns['product_regular_price'] = 'Regular Price';
         return $columns;
     }
 
-    public static function show_price_value_column($column, $post_id)
+    public static function show_regular_price_value_column($column, $post_id)
     {
-        if($column == 'product_price'){
-            $product_price = get_post_meta($post_id,'product_price',true);
-            echo Utility::persian_numbers(number_format($product_price));
+        if($column == 'product_regular_price'){
+            $product_regular_price = get_post_meta($post_id,'product_regular_price',true);
+            echo Utility::persian_numbers(number_format($product_regular_price));
         }
     }
 

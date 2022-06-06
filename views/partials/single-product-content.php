@@ -1,3 +1,13 @@
+<?php
+if ( isset( $_POST['add_to_cart'] ) ) {
+	$product_id = intval( $_POST['product_id'] );
+	$quantity   = intval( $_POST['quantity'] );
+	if ( $product_id > 0 && $quantity > 0 ) {
+		do_action( 'add_to_cart', $product_id, $quantity );
+	}
+}
+?>
+
 <?php if (have_posts()): ?>
     <?php while(have_posts()): the_post(); ?>
 <section>
@@ -194,23 +204,26 @@
                             <span>
                                     <span>
                                         <?php
-                                        $product_price = Product::price(get_the_ID());
+                                        $product_regular_price = Product::regular_price(get_the_ID());
                                         $product_sale_price = Product::sale_price(get_the_ID());
                                         ?>
                                         <?php if (intval($product_sale_price)>0): ?>
-                                            <del class="product_price"><?php echo $product_price ?></del>
+                                            <del class="product_price"><?php echo $product_regular_price ?></del>
                                             <ins class="product_price"><?php echo $product_sale_price ?></ins>
                                         <?php else: ?>
-                                            <ins class="product_price"><?php echo $product_price ?></ins>
+                                            <ins class="product_price"><?php echo $product_regular_price ?></ins>
                                         <?php endif; ?>
                                     </span>
+                                    <form method="post" enctype="multipart/form-data">
+                                        <label>Quantity:</label>
+                                        <input type="text" name="quantity" value="3" />
+                                        <input type="hidden" name="product_id" value="<?php echo get_the_ID(); ?>" />
+                                        <button type="submit" name="add_to_cart" class="btn btn-fefault cart">
+                                            <i class="fa fa-shopping-cart"></i>
+                                            Add to cart
+                                        </button>
+                                    </form>
 
-									<label>Quantity:</label>
-									<input type="text" value="3" />
-									<button type="button" class="btn btn-fefault cart">
-										<i class="fa fa-shopping-cart"></i>
-										Add to cart
-									</button>
 								</span>
                             <p><b>Availability:</b> In Stock</p>
                             <p><b>Condition:</b> New</p>
