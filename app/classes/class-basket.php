@@ -2,10 +2,10 @@
 
 class Basket {
 
-	public static function add( $product_id, $count = 1 ) {
+	public static function add( $product_id, $count = 1) {
 		self::init_basket();
 		if ( self::exist( $product_id ) ) {
-			$_SESSION['basket']['items'][ $product_id ]['count'] ++;
+			$_SESSION['basket']['items'][ $product_id ]['count']++;
 		} else {
 			$product                                    = Product::find( $product_id );
 			$_SESSION['basket']['items'][ $product_id ] = [
@@ -65,7 +65,7 @@ class Basket {
 	}
 
 	public static function init_basket() {
-		if ( ! $_SESSION['basket'] ) {
+		if ( ! isset( $_SESSION['basket'] ) ) {
 			$_SESSION['basket'] = [];
 		}
 	}

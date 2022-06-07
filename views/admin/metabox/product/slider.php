@@ -22,7 +22,7 @@
     <a href="#" class="add_slider_item">add item</a>
 </p>
 <div class="sliders_item_wrapper">
-    <?php if (isset($slider_images) && is_countable($slider_images) && count($slider_images) > 0): ?>
+    <?php if (isset($slider_images) && is_array($slider_images) && is_countable($slider_images) && count($slider_images) > 0): ?>
         <?php foreach ($slider_images as $slider_image): ?>
             <p>
                 <input type="text" name="sliders[]" value="<?php echo $slider_image; ?>">
