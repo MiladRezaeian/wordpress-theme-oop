@@ -5,10 +5,12 @@ class SliderMetaBox
 
     public static function register_product_slider_meta_box()
     {
-        add_meta_box('product_slider_meta_box',
+        add_meta_box(
+            'product_slider_meta_box',
             'گالری تصاویر',
             'SliderMetaBox::product_slider_content_handler',
-            'product');
+            'product'
+        );
     }
 
     public static function product_slider_content_handler($post)
