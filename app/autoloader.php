@@ -21,7 +21,7 @@ class Autoloader
         $class = 'class-' . $class;
         $file_name = $class . '.php';
 
-        return THEME_PATH . DIRECTORY_SEPARATOR . 'app' . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $file_name;
+        return THEME_PATH . DS . 'app' . DS . 'classes' . DS . $file_name;
     }
 
 }
