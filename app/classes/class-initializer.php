@@ -6,6 +6,7 @@ class Initializer
     {
         add_theme_support('post-thumbnails');
         add_theme_support('title-tag');
+		new Options_panel();
     }
 
 	public static function start_session(  ) {

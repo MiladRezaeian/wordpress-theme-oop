@@ -18,6 +18,7 @@ class Autoloader
     public function convert_class_to_file($class_name)
     {
         $class = strtolower($class_name);
+		$class = str_replace('_','-', $class);
         $class = 'class-' . $class;
         $file_name = $class . '.php';
 
