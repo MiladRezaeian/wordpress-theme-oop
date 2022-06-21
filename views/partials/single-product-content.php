@@ -233,6 +233,10 @@ if ( isset( $_POST['add_to_cart'] ) ) {
                     </div>
                 </div><!--/product-details-->
 
+                <div class="content">
+                    <?php the_content(); ?>
+                </div>
+
                 <div class="category-tab shop-details-tab"><!--category-tab-->
                     <div class="col-sm-12">
                         <ul class="nav nav-tabs">
