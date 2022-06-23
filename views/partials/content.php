@@ -756,13 +756,17 @@
 
 
 <?php
+    $new_products = Cache::get('home_page_products');
+    if($new_products === false){
+	    $new_products = new WP_Query(array(
+		    'post_type' => 'product',
+		    'order'     => 'ASC',
+		    'orderby'   => 'meta_value_num',
+		    'meta_key'  => Product::REGULAR_PRICE_META_KEY
+	    ));
+        Cache::set('home_page_products',$new_products);
+    }
 
-    $new_products = new WP_Query(array(
-            'post_type' => 'product',
-            'order'     => 'ASC',
-            'orderby'   => 'meta_value_num',
-            'meta_key'  => Product::REGULAR_PRICE_META_KEY
-    ));
     if($new_products->have_posts()){
         while ($new_products->have_posts()){
             $new_products->the_post();
