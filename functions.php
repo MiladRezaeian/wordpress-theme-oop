@@ -25,4 +25,7 @@ add_action( 'manage_product_posts_custom_column', 'PostTypes::show_regular_price
 
 add_shortcode( 'member_content', 'ShortCodes::member_content_handler' );
 
-add_action('widgets_init', 'SideBars::register_main_sidebar');
+add_action( 'widgets_init', 'SideBars::register_main_sidebar' );
+add_action( 'widgets_init', function () {
+	register_widget( 'Widget_Form' );
+} );
