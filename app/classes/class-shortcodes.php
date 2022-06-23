@@ -3,6 +3,10 @@
 class ShortCodes {
 
 	public static function member_content_handler( $atts, $content = '' ) {
+		$options = Options_panel::load();
+		if ( isset( $options['member_content_active'] ) && intval( $options['member_content_active'] ) == 0 ) {
+			return $content;
+		}
 		$args = shortcode_atts( array(
 			'id'   => 1,
 			'role' => 'subscriber'
