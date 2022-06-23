@@ -24,3 +24,5 @@ add_filter( 'manage_product_posts_columns', 'PostTypes::add_regular_price_column
 add_action( 'manage_product_posts_custom_column', 'PostTypes::show_regular_price_value_column', 10, 2 );
 
 add_shortcode( 'member_content', 'ShortCodes::member_content_handler' );
+
+add_action('widgets_init', 'SideBars::register_main_sidebar');
