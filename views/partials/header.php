@@ -105,6 +105,13 @@
                             <li><a href="contact-us.html">Contact</a></li>
                         </ul>
                     </div>
+
+                    <?php if(has_nav_menu('top-bar')): ?>
+                    <?php  wp_nav_menu(array(
+                            'theme_location' => 'top-bar'
+                    )); ?>
+                    <?php endif; ?>
+
                 </div>
                 <div class="col-sm-3">
                     <div class="search_box pull-right">
